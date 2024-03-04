@@ -24,6 +24,11 @@ const router = createRouter({
       name: 'ShoppingCheck',
       component: () => import('../views/ShoppingCheck.vue')
     },
+    {
+      path: '/BuySuccess',
+      name: 'BuySuccess',
+      component: () => import('../views/BuySuccess.vue')
+    },
   ],
 });
 

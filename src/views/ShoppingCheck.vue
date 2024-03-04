@@ -13,11 +13,11 @@ export default {
     this.totalRroductCount = this.arrCart.pop().count;
   },
   methods: {
-    bakeToShoppingCar() {
-      return this.$router.push('/ShoppingCar');
+    bakeToShopping() {
+      return this.$router.push({ name: "ShoppingCheck" });
     },
     submitData() {
-      // return this.$router.push('/ShoppingCheck');
+      return this.$router.push({ name: "BuySuccess" });
     }
   }
 }
@@ -35,28 +35,42 @@ export default {
           <div class="price">{{ item.quantity }}</div>
         </div>
       </div>
-      <div>
-        <label for="name"><p>姓名</p></label>
-        <input type="text" id="name">
-        <label for="phone"><p>電話</p></label>
-        <input type="text" id="phone">
-        <label for="addr"><p>地址</p></label>
-        <input type="text" id="addr">
-        <label for="email"><p>電子信箱</p></label>
-        <input type="email" id="email">
+      <div class="w-11/12 flex flex-col gap-3 mx-auto my-[20px]">
+        <label for="name">
+          <p>姓名</p>
+        </label>
+        <input type="text" id="name" class="border-[1px]">
+        <label for="phone">
+          <p>電話</p>
+        </label>
+        <input type="text" id="phone" class="border-[1px]">
+        <label for="addr">
+          <p>地址</p>
+        </label>
+        <input type="text" id="addr" class="border-[1px]">
+        <label for="email">
+          <p>電子信箱</p>
+        </label>
+        <input type="email" id="email" class="border-[1px]">
+
         <p>付款方式</p>
-        <input type="radio" id="pay0" name="pay" value="0"><label for="pay0">信用卡</label>
-        <input type="radio" id="pay1" name="pay" value="1"><label for="pay1">貨到付款</label>
+        <div class="flex gap-2">
+          <input type="radio" id="pay0" name="pay" value="0"><label for="pay0">信用卡</label>
+          <input type="radio" id="pay1" name="pay" value="1"><label for="pay1">貨到付款</label>
+        </div>
+
         <p>運送方式</p>
-        <input type="radio" id="send0" name="send" value="0"><label for="send0">宅配</label>
-        <input type="radio" id="send1" name="send" value="1"><label for="send1">超商取貨</label>
+        <div class="flex gap-2">
+          <input type="radio" id="send0" name="send" value="0"><label for="send0">宅配</label>
+          <input type="radio" id="send1" name="send" value="1"><label for="send1">超商取貨</label>
+        </div>
       </div>
       <div class="w-full flex flex-col items-end text-2xl font-bold text-black mb-[10px]">
         <div>{{ `商品數量: ${totalRroductCount}` }}</div>
         <div>{{ `商品總金額: $${totalPriceCount}` }}</div>
       </div>
       <div class="flex justify-between items-center">
-        <button class="act-btn bg-red-700 hover:bg-red-900" type="button" @click="bakeToShoppingCar()">回上頁繼續加購</button>
+        <button class="act-btn bg-red-700 hover:bg-red-900" type="button" @click="bakeToShopping()">回上頁繼續加購</button>
         <button class="act-btn bg-green-700 hover:bg-green-900" type="button" @click="submitData()">確認送出</button>
       </div>
     </div>
